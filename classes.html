@@ -1,13 +1,9 @@
 <!DOCTYPE html>
 <html lang="vi"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Quản lý Lớp</title><link rel="stylesheet" href="../assets/style.css"></head>
-<body class="admin-body"><div id="sidebar"></div>
-<main class="admin-main"><div class="topbar"><button class="mobile-menu" onclick="toggleSidebar()">☰</button><div>🏫 <b>Quản lý Lớp</b></div><a href="#" onclick="logout()">Đăng xuất</a></div>
-<div class="page-title"><div><h1>📋 Quản lý Lớp</h1><p class="muted">Thêm, sửa, xóa và tìm kiếm dữ liệu trực tiếp trên trình duyệt.</p></div><button class="primary-btn" onclick="openForm()">+ Thêm mới</button></div>
-<div class="panel"><div class="toolbar"><input id="searchBox" placeholder="🔎 Tìm kiếm..." oninput="renderTable()"><button class="secondary-btn" onclick="exportCSV()">Xuất CSV</button><button class="secondary-btn" onclick="resetData()">Khôi phục dữ liệu mẫu</button></div>
-<div class="table-wrap"><table><thead><tr><th>Mã lớp</th><th>Khóa học</th><th>Giảng viên</th><th>Lịch học</th><th>Phòng</th><th>Sĩ số</th><th>Thao tác</th></tr></thead><tbody id="dataTable"></tbody></table></div></div>
-<div id="modal" class="modal"><div class="modal-content"><div class="modal-head"><h2 id="modalTitle">Thêm mới</h2><button onclick="closeForm()">×</button></div>
-<form id="dataForm" class="form-grid"><label>Mã<input name="id" placeholder="Tự động nếu để trống"></label><label>Khóa học<input name="course" required></label><label>Giảng viên<input name="teacher" required></label><label>Lịch học<input name="schedule" required></label><label>Phòng<input name="room" required></label><label>Sĩ số<input name="capacity" required></label><div class="form-actions"><button type="button" class="secondary-btn" onclick="closeForm()">Hủy</button><button class="primary-btn" type="submit">Lưu dữ liệu</button></div></form></div></div>
-</main><script src="../assets/app.js"></script><script>
-requireAdmin(); renderSidebar('classes'); initCrud('class', ["id", "course", "teacher", "schedule", "room", "capacity"]); 
-</script></body></html>
+<title>Lớp đang mở</title><link rel="stylesheet" href="assets/style.css"></head>
+<body>
+<header class="public-header"><div class="brand">🏫 Trung Tâm Ngoại Ngữ</div><nav>
+<a href="index.html">Trang chủ</a><a href="courses.html">Khóa học</a><a class="active" href="classes.html">Lớp đang mở</a><a href="about.html">Giới thiệu</a><a class="login-btn" href="login.html">Đăng nhập</a></nav></header>
+<main class="container section"><h1>Lớp đang mở</h1><div class="table-wrap"><table><thead><tr><th>Mã lớp</th><th>Khóa học</th><th>Giảng viên</th><th>Lịch học</th><th>Sĩ số</th><th>Trạng thái</th></tr></thead><tbody id="publicClassList"></tbody></table></div></main>
+<footer>© 2026 Trung Tâm Ngoại Ngữ</footer><script src="assets/app.js"></script><script>renderPublicClasses();</script>
+</body></html>
